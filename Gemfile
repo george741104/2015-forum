@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'devise'
+gem 'mysql2'
 
 
 # Use ActiveModel has_secure_password
