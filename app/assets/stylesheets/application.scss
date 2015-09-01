@@ -18,3 +18,22 @@
  *= require_tree .
  *= require_self
  */
+
+.sorting {
+  li {
+    .current {
+      padding-right: 12px;
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+
+    .asc:before{
+      font-family: FontAwesome;
+      content: "\f095";
+    }
+    .desc:before{
+      font-family: FontAwesome;
+      content: "\f098";
+    }
+  }
+}

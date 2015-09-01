@@ -1,0 +1,8 @@
+<h2>New Post</h2>
+
+
+<%= form_for @post, :url => posts_path, :class=>"form" do |p| %>
+  <%= render :partial => "post", :locals => {:p=>p} %>
+  <%= p.submit "Publish", :class => "btn btn-primary" %>
+
+  <% end %>
