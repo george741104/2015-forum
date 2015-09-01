@@ -71,8 +71,12 @@ GEM
     execjs (2.6.0)
     faker (1.4.3)
       i18n (~> 0.5)
+    ffi (1.9.10)
+    font-awesome-sass (4.4.0)
+      sass (>= 3.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hirb (0.7.3)
     i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -139,6 +143,16 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    sassc (1.6.0)
+      bundler
+      ffi (~> 1.9.6)
+      sass (>= 3.3.0)
+    sassc-rails (1.1.0)
+      rails (>= 4.0.0)
+      sass
+      sassc (~> 1.6)
+      sprockets (> 2.11)
+      tilt
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -177,12 +191,15 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   faker
+  font-awesome-sass (~> 4.4.0)
+  hirb
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
   paperclip (~> 4.3)
   rails (= 4.2.1)
   sass-rails (~> 5.0)
+  sassc-rails
   sdoc (~> 0.4.0)
   spring
   sqlite3

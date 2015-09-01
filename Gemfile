@@ -29,6 +29,9 @@ gem 'devise'
 gem 'mysql2'
 gem "paperclip", "~> 4.3"
 gem 'faker'
+gem 'hirb'
+gem 'font-awesome-sass', '~> 4.4.0'
+gem 'sassc-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
