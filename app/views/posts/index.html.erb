@@ -14,18 +14,30 @@
         <tr class="sorting">
           <th><%=sortable "title" %></th>
           <th><%=sortable "content" %></th>
-          <th><%=sortable "Post.user.first_name","Author" %></th>
+          <th><%=sortable "user_id","Author"  %></th>
           <th><%=sortable "created_at", "Created" %></th>
         </tr>
           <% @posts.each do |p| %>
           <tr>
             <td> <%= link_to "#{p.title}", post_path("#{p.id}"), :class => "index_link"  %> </td>
             <td> <%= link_to "#{p.content}", post_path("#{p.id}"), :class => "index_link"  %> </td>
+
+            <td>
+             <% if p.user.nick_name  %>
+                <%= p.user.nick_name %>
+              <% elsif p.user.first_name %>
+                <%= p.user.first_name %>
+              <% else %>
+                <%= p.user.email_name %>
+              <% end %>
+
+            </td>
+
             <td> <%= link_to "#{p.created_at}", post_path("#{p.id}"), :class => "index_link"  %> </td>
-            <td> <%= p.user.try(:first_name)%> </td>
+
           </tr>
           <% end %>
-
+<%console%>
       </table>
     </div>
   </div>

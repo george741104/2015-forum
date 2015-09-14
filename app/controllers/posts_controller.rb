@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only:[:show]
-  before_action
-  before_action
   helper_method :sort_column, :sort_direction
+
   def index
     @posts = Post.order(sort_column+' '+sort_direction)
 
@@ -14,7 +13,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    #@post.user = current_user
+    @post.user = current_user
     @post.save
     redirect_to posts_path
   end

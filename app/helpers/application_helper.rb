@@ -7,8 +7,8 @@ module ApplicationHelper
     else
       css_class = nil
     end
-
     # css_class = (sort_button == sort_column) ? "current #{sort_direction}" : nil
+
     if sort_button == sort_column && sort_direction =="asc"
       direction = "desc"
     else
