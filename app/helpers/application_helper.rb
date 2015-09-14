@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def sortable(sort_button, sort_button_name = nil)
     sort_button_name ||= sort_button.titleize
 
@@ -18,4 +19,7 @@ module ApplicationHelper
 
     link_to sort_button_name, {:sort => sort_button, :direction => direction}, {:class => css_class}
   end
+
+
+
 end

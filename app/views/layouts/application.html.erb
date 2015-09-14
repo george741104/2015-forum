@@ -20,10 +20,10 @@
             <% if current_user %>
               <li><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %> </li>
 
-              <% if current_user.first_name.nil? %>
-                  <li><%=link_to "Hi! #{current_user.email.split('@').first.capitalize}", edit_registration_path(:user) %></li>
+              <% if current_user.nick_name? %>
+                  <li><%=link_to "Hi! #{current_user.nick_name}", edit_registration_path(:user) %></li>
                 <%else%>
-                  <li><%=link_to "Hi! #{current_user.first_name}" , edit_registration_path(:user) %></li>
+                  <li><%=link_to "Hi! #{current_user.email.split("@").first.capitalize}" , edit_registration_path(:user) %></li>
               <%end%>
             <% else %>
               <li ><%= link_to('Sign Up', new_registration_path(:user)) %> </li>
