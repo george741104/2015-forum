@@ -22,7 +22,7 @@
             <td> <%= link_to "#{p.title}", post_path("#{p.id}"), :class => "index_link"  %> </td>
             <td> <%= link_to "#{p.content}", post_path("#{p.id}"), :class => "index_link"  %> </td>
             <td> <%= link_to "#{p.created_at}", post_path("#{p.id}"), :class => "index_link"  %> </td>
-            <td> <%= link_to "#{p.user.first_name}", post_path("#{p.id}"), :class => "index_link"  %> </td>
+            <td> <%= p.user.try(:first_name)%> </td>
           </tr>
           <% end %>
 
