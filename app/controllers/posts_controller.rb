@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only:[:show]
+  before_action :set_my_post, except:[:index, :show, :new, :create]
   helper_method :sort_column, :sort_direction
-
+  before_action :authenticate_user!, except:[:index]
   def index
     @posts = Post.order(sort_column+' '+sort_direction)
 
@@ -22,6 +23,10 @@ class PostsController < ApplicationController
 
   end
 
+  def edit
+
+  end
+
   def update
     @post.update(post_params)
     redirect_to posts_path
@@ -35,14 +40,21 @@ class PostsController < ApplicationController
 
   end
 
+
+
+private
+   def set_my_post
+    @post = current_user.posts.find(params[:id])
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
   def post_params
     params.require(:post).permit(:title, :content, :user_id, :category_ids => [])
   end
 
-private
-  def set_post
-    @post = Post.find(params[:id])
-  end
 # default order setting below===========================================
   def sort_direction
     ["asc","desc"].include?(params[:direction]) ? params[:direction] : "desc"

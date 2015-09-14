@@ -1,10 +1,16 @@
 <div class="container">
+  <% if user_signed_in? %>
   <div class="row">
     <div class="container">
       <ul class="list-group">
-        <li class="list-group-item"><%= link_to"Add Post", new_post_path, :class=>"btn btn-primary"%></li>
+        <li class="list-group-item">
+
+            <%= link_to"Add Post", new_post_path, :class=>"btn btn-primary"%>
+
+        </li>
       </ul>
     </div>
+  <%end%>
     <div class="container">
 
 
@@ -16,6 +22,9 @@
           <th><%=sortable "content" %></th>
           <th><%=sortable "user_id","Author"  %></th>
           <th><%=sortable "created_at", "Created" %></th>
+          <% if user_signed_in? %>
+            <th>Functions</th>
+          <%end%>
         </tr>
           <% @posts.each do |p| %>
           <tr>
@@ -34,7 +43,12 @@
             </td>
 
             <td> <%= link_to "#{p.created_at}", post_path("#{p.id}"), :class => "index_link"  %> </td>
-
+            <% if current_user == p.user %>
+              <td>
+                <%=link_to "Edit", edit_post_path(p.id), :class=>"btn btn-success"  %>
+                <%=link_to "Delete", post_path(p.id), :method=>'delete',:class=>"btn btn-danger", :data => { :confirm => "Are you sure?" }%>
+              </td>
+            <%end%>
           </tr>
           <% end %>
 <%console%>
