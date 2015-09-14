@@ -2,9 +2,9 @@ class PostsController < ApplicationController
   before_action :set_post, only:[:show]
   before_action
   before_action
-  helper_method :sort_button, :sort_direction
+  helper_method :sort_column, :sort_direction
   def index
-    @posts = Post.order(sort_button+' '+sort_direction)
+    @posts = Post.order(sort_column+' '+sort_direction)
 
   end
 
@@ -44,12 +44,12 @@ private
   def set_post
     @post = Post.find(params[:id])
   end
-
+# default order setting below===========================================
   def sort_direction
-    ["asc","desc"].include?(params[:direction]) ? params[:direction] : "asc"
+    ["asc","desc"].include?(params[:direction]) ? params[:direction] : "desc"
   end
 
-  def sort_button
-    Post.column_names.include?(params[:sort]) ? params[:sort] : "title"
+  def sort_column
+    Post.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   end
 end
