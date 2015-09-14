@@ -9,43 +9,60 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-    <div class="row">
-      <div class="field col-xs-6">
+
+    <div class="form-group">
+        <%= f.label :email %><i> (This email will be used for login in the futue)</i><br />
+        <%= current_user.email %>
+    </div>
+
+    <div class="form-group">
         <%= f.label :first_name %>
-        <%= f.text_field :first_name, autocomplete: "off" %>
+        <%= f.text_field :first_name, autocomplete: "off",:class=>'form-control' %>
       </div>
 
-      <div class="field col-xs-6">
+      <div class="form-group">
         <%= f.label :last_name %>
-        <%= f.text_field :last_name, autocomplete: "off" %>
+        <%= f.text_field :last_name, autocomplete: "off",:class=>'form-control' %>
       </div>
-    </div>
 
-    <div class="field">
-      <%= f.label :email %></br>
-      <%= f.email_field :email, autofocus: true %>
-    </div>
+
+
+      <div class="form-group">
+        <%= f.label :phone %>
+        <%= f.text_field :phone, autocomplete: "off",:class=>'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :cell_phone %>
+        <%= f.text_field :cell_phone, autocomplete: "off",:class=>'form-control' %>
+      </div>
+
+
+      <div class="form-group">
+        <%= f.label :nick_name %>
+        <%= f.text_field :nick_name, autocomplete: "off",:class=>'form-control' %>
+      </div>
 
     <div class="field">
       <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.password_field :password, autocomplete: "off",:class=>'form-control' %>
     </div>
 
     <div class="field">
       <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off",:class=>'form-control' %>
     </div>
 
     <div class="field">
       <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "off" %>
+      <%= f.password_field :current_password, autocomplete: "off",:class=>'form-control' %>
     </div>
   </br>
     <div class="actions">
-      <%= f.submit "Update" %>
+      <%= f.submit "Update",:class=>"btn btn-primary" %>
     </div>
   <% end %>
-
+<hr>
   <h3>Cancel my account</h3>
 
   <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
