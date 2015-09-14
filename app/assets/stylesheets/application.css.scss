@@ -20,7 +20,7 @@
  */
 
 .sorting {
-  li {
+   th {
     .current {
       padding-right: 12px;
       background-repeat: no-repeat;
@@ -29,11 +29,39 @@
 
     .asc:before{
       font-family: FontAwesome;
-      content: "\f095";
+      content: "\f062 ";
     }
     .desc:before{
       font-family: FontAwesome;
-      content: "\f098";
+      content: "\f063 ";
     }
   }
 }
+
+.index_link{
+  text_decoration: none;
+  color: #393939;
+  :after{
+
+  }
+  &:hover {
+    text_decoration :none;
+    color:black;
+  }
+  &:visited {
+    color:gray;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
