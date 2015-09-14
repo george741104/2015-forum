@@ -7,24 +7,24 @@
     </div>
     <div class="container">
 
-      <ul class="nav nav-tabs sorting">
-        <li role="presentation"><%=sortable "title" %></li>
-        <li role="presentation"><%=sortable "created_at", "Created" %></li>
-        <li role="presentation"><%=sortable "content" %></li>
-      </ul>
 
 
-      <table class="table">
-        <tr>
-          <th>Title</th>
-          <th>Content</th>
+
+      <table class="table ">
+        <tr class="sorting">
+          <th><%=sortable "title" %></th>
+          <th><%=sortable "content" %></th>
+          <th><%=sortable "Post.user.first_name","Author" %></th>
+          <th><%=sortable "created_at", "Created" %></th>
         </tr>
-        <% @posts.each do |p| %>
-        <tr>
-          <td> <%= p.title %> </td>
-          <td> <%= p.content %> </td>
-        </tr>
-        <% end %>
+          <% @posts.each do |p| %>
+          <tr>
+            <td> <%= link_to "#{p.title}", post_path("#{p.id}"), :class => "index_link"  %> </td>
+            <td> <%= link_to "#{p.content}", post_path("#{p.id}"), :class => "index_link"  %> </td>
+            <td> <%= link_to "#{p.created_at}", post_path("#{p.id}"), :class => "index_link"  %> </td>
+            <td> <%= link_to "#{p.user.first_name}", post_path("#{p.id}"), :class => "index_link"  %> </td>
+          </tr>
+          <% end %>
 
       </table>
     </div>
